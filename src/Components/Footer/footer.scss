@@ -1,0 +1,41 @@
+.footer{
+    border-top: 1px solid #d3d7d7;
+    padding: 0 30px;
+    display: flex;
+    &__description{
+        width: 70%;
+        border-right: 1px solid #d3d7d7;
+        margin-right: 20px;
+        padding: 30px 20px 30px 0;
+    }
+    &__contacts{
+        width: 30%;
+        padding: 30px 0;
+    }
+    &__about:first-child{
+        margin-bottom: 20px;
+    }
+    &__title{
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &__list{
+        padding-left: 20px;
+        margin: 0;
+        > li{
+            margin-bottom: 5px;
+        }
+    }
+    &__logo{
+        display: flex;
+        :first-child{
+            margin-right: 5px;
+        }
+        margin-bottom: 88px;
+    }
+    &__info{
+        color: #a4acad;
+        margin-bottom: 10px;
+    }
+}
