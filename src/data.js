@@ -1,4 +1,4 @@
-const data = [
+export const data = [
     {
         id: 1,
         category: 'set',
@@ -57,7 +57,7 @@ const data = [
         price: 279,
         weight: 270,
         pieces: 8,
-        ingredients: 'Лосось, сыр "Филадельфия", огурец, авокадо',
+        ingredients: 'Рис, лосось, сыр "Филадельфия", огурец, авокадо',
     },
     {
         id: 7,
@@ -67,7 +67,7 @@ const data = [
         price: 239,
         weight: 190,
         pieces: 8,
-        ingredients: 'Лосось, майонез японский, огурец, авокадо, икра тобико',
+        ingredients: 'Рис, лосось, майонез японский, огурец, авокадо, икра тобико',
     },
     {
         id: 8,
@@ -77,7 +77,7 @@ const data = [
         price: 199,
         weight: 190,
         pieces: 8,
-        ingredients: 'Угорь, огурец, авокадо, майонез японский, кунжут, соус "Унаги"',
+        ingredients: 'Рис, угорь, огурец, авокадо, майонез японский, кунжут, соус "Унаги"',
     },
     {
         id: 9,
@@ -87,7 +87,7 @@ const data = [
         price: 89,
         weight: 110,
         pieces: 6,
-        ingredients: 'Рис, лосось',
+        ingredients: 'Рис, нори, лосось',
     },
     {
         id: 10,
@@ -97,7 +97,7 @@ const data = [
         price: 49,
         weight: 110,
         pieces: 6,
-        ingredients: 'Копченная курица, майонез, зеленый лук',
+        ingredients: 'Рис, копченная курица, майонез, зеленый лук',
     },
     {
         id: 11,
@@ -147,7 +147,7 @@ const data = [
         price: 30,
         weight: 500,
         pieces: 1,
-        ingredients: 'Безалкогольный напиток Pepsi',
+        ingredients: 'Безалкогольный напиток Coca-cola',
     },
     {
         id: 16,
@@ -167,7 +167,7 @@ const data = [
         price: 39,
         weight: 500,
         pieces: 1,
-        ingredients: 'Черная смородина, сахар, вода',
+        ingredients: 'Имбирь, лимон, сахар, вода',
     },
     {
         id: 18,
@@ -177,8 +177,7 @@ const data = [
         price: 59,
         weight: 1000,
         pieces: 1,
-        ingredients: 'Персиковый сок',
+        ingredients: 'Апельсиновый сок',
     },
 ]
 
-export default data;

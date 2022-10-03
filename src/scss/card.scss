@@ -1,0 +1,39 @@
+.card {
+  display: flex;
+  justify-content: center;
+  &__wrapper {
+    width: 230px;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  &__info {
+    border-bottom: 1px solid #a4acad;
+    padding-bottom: 10px;
+  }
+  &__img {
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 190px;
+    }
+  }
+  &__title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    white-space: nowrap;
+  }
+  &__about {
+    text-align-last: left;
+    color: #a4acad;
+  }
+  &__btn {
+    font-size: 20px;
+    padding: 7px 10px;
+  }
+}

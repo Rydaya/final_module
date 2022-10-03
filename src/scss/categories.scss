@@ -1,0 +1,26 @@
+.sidebar{
+  flex-shrink: 0;
+    background-color: #fff;
+    width: 220px;
+    padding: 20px 0;
+    border-right: 1px solid #d3d7d7;
+    &__list{
+      list-style-type: none;
+    }
+    &__item{
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      margin-bottom: 15px;
+      img{
+        margin-right: 9px;
+      }
+      :hover{
+        color: #f46d40;
+      }
+      button{
+        background: none;
+        border: none;
+      }
+    }
+  }
