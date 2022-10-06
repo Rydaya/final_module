@@ -11,6 +11,7 @@
     b {
       margin-right: 8px;
       color: #a4acad;
+      white-space: nowrap;
     }
 
     span {
@@ -29,7 +30,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 180px;
+    width: 190px;
 
     ul {
       overflow: hidden;
@@ -47,8 +48,12 @@
         &.active {
           font-weight: bold;
           color: #f46d40;
+          background: rgba(254, 95, 30, 0.05);
         }
       }
     }
+  }
+  @media screen and (max-width: 810px){
+    align-self: flex-end;
   }
 }

@@ -1,8 +1,9 @@
+button {
+  cursor: pointer;
+}
+
 .wrapper {
   background-color: #fff;
-  margin: 30px auto;
-  max-width: 1400px;
-  width: calc(100vw - 100px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,59 +11,6 @@
 
 .content {
   display: flex;
-}
-
-.container {
-  flex: 1 1 auto;
-  width: inherit;
-  padding: 32px 30px;
-  position: relative;
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    h1 {
-      color: #f46d40;
-      font-weight: 500;
-      font-size: 28px;
-      margin: 0;
-    }
-  }
-}
-
-.products {
-  grid-column-gap: 10px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  &__empty {
-    font-size: 18px;
-    font-weight: 500;
-    color: #5f686a;
-  }
-  @media screen and (max-width: 1342px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media screen and (max-width: 1100px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #a4acad;
-  font-size: 20px;
-  font-weight: 500;
-  img{
-    width: 100px;
-    margin-bottom: 20px;
-  }
 }
 
 .buyblock {
@@ -73,7 +21,6 @@
 }
 
 .price {
-  font-size: 24px;
   font-weight: 700;
   margin-right: 5px;
   white-space: nowrap;
@@ -84,4 +31,7 @@
   border-radius: 4px;
   border: none;
   background-color: #f46d40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
