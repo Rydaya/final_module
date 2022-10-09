@@ -1,11 +1,17 @@
 
 import React from "react";
-import '../scss/modal.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import {setModalActive} from '../../store/slices/modalSlice.js';
 
-const Modal = ({isActive, setIsActive, array}) =>{
+import './modal.scss';
+
+const Modal = () =>{
+    const dispatch = useDispatch();
+    const {modalActive, clickedCard} = useSelector(state => state.modal);
+    
     return(
-        <div className={isActive ? 'modal modal__active' : 'modal'} onClick={() => setIsActive(false)}>
-            {array ? array.map(({ id, category, imgUrl, name, price, weight, pieces, ingredients }) => (
+        <div className={modalActive ? 'modal modal__active' : 'modal'} onClick={() => dispatch(setModalActive())}>
+            {clickedCard ? clickedCard.map(({ id, category, imgUrl, name, price, weight, pieces, ingredients }) => (
                 <div className="modal__content" key={id} onClick={e => e.stopPropagation()}>
                     <div className="modal__img">
                         <img src={imgUrl} alt={name} width={250}/>

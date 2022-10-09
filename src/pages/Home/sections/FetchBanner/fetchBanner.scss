@@ -1,0 +1,16 @@
+.fetchBanner {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #a4acad;
+    font-size: 20px;
+    font-weight: 500;
+    img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+  }

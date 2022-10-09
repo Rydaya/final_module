@@ -1,11 +1,11 @@
 import React from 'react';
-import EmptyCart from '../EmptyCart';
+import EmptyCart from './sections/EmptyCart/EmptyCart.jsx';
 
-import minusIcon from '../../icons/minusIcon.png';
-import plusIcon from '../../icons/plusIcon.png';
-import deleteIcon from '../../icons/deleteIcon.png';
+import minusIcon from '../../assets/images/minusIcon.png';
+import plusIcon from '../../assets/images/plusIcon.png';
+import deleteIcon from '../../assets/images/deleteIcon.png';
 
-import '../../scss/cart.scss';
+import './cart.scss';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {

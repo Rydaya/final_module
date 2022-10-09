@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import Header from './pages/Header.jsx';
-import Footer from './pages/Footer.jsx';
 
-import Home from './pages/routePages/Home.jsx';
-import Cart from './pages/routePages/Cart.jsx';
+import Header from './components/Header/Header.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
-import './scss/app.scss';
+import Home from './pages/Home/Home.jsx';
+import Cart from './pages/Cart/Cart.jsx';
+
+import './assets/scss/app.scss';
 
 function App() {
 

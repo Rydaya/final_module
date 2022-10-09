@@ -1,10 +1,22 @@
 import React from 'react';
-import '../scss/card.scss';
+import { useDispatch } from 'react-redux';
+import { setModalActive, setСlickedCard } from '../../store/slices/modalSlice.js';
 
-const Card = ({ id, category, imgUrl, name, price, weight, pieces, openCardModal }) => {
+import './card.scss';
+
+const Card = ({ item, currentData }) => {
+  const { id, category, imgUrl, name, price, weight, pieces } = item;
+  const dispatch = useDispatch();
+
+  const openCartModal = (currentData, id) => {
+    dispatch(setModalActive());
+    const clickedCard = [currentData.find((item) => item.id === id)];
+    dispatch(setСlickedCard(clickedCard));
+  };
+
   return (
     <div className="card">
-      <div className="card__wrapper" onClick={() => openCardModal(id)}>
+      <div className="card__wrapper" onClick={() => openCartModal(currentData, id)}>
         <div className="card__info">
           <div className="card__img">
             <img src={imgUrl} alt={name} />

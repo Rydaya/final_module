@@ -1,8 +1,10 @@
 import React from 'react';
-import '../scss/header.scss';
-import logo from '../icons/logo.png';
-import cartLogo from '../icons/cart.png';
 import { Link } from 'react-router-dom';
+
+import logo from '../../assets/images/logo.png';
+import cartLogo from '../../assets/images/cart.png';
+
+import './header.scss';
 
 const Header = () => {
   return (
