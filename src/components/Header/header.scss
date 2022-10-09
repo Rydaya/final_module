@@ -25,16 +25,14 @@
   &__schedule {
     color: #a4acad;
   }
-  &__form {
-    flex: 1 1 auto;
+  &__actions{
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+
   }
   &__btn {
-    padding: 0 15px 3px;
-    display: block;
+    padding: 0 0 3px 0;
     height: 35px;
+    width: 60px;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -44,6 +42,9 @@
       font-size: 14px;
       color: #fff;
     }
+  }
+  &__btnCart{
+    margin-right: 15px;
   }
   @media screen and (max-width: 450px){
     padding: 10px 15px;

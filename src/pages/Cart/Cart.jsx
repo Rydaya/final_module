@@ -1,78 +1,45 @@
 import React from 'react';
-import EmptyCart from './sections/EmptyCart/EmptyCart.jsx';
+import { useSelector, useDispatch } from 'react-redux';
+import { recountTotalValues, clearItems } from '../../store/slices/cartSlice.js';
 
-import minusIcon from '../../assets/images/minusIcon.png';
-import plusIcon from '../../assets/images/plusIcon.png';
-import deleteIcon from '../../assets/images/deleteIcon.png';
+import CartItem from './sections/CartItem/CartItem.jsx';
+import EmptyCart from './sections/EmptyCart/EmptyCart.jsx';
 
 import './cart.scss';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const { totalPrice, totalItems, items } = useSelector((state) => state.cart);
+
+  const onClickClear = () =>{
+    dispatch(clearItems());
+    dispatch(recountTotalValues());
+  }
+
+  if (!totalPrice) {
+    return <EmptyCart/>
+  }
+
   return (
     <>
       <div className="cart">
         <div className="cart__top">
           <div className="cart__title">Корзина</div>
-          <button className="cart__clear">Очистить корзину</button>
+          <button className="cart__clear" onClick={onClickClear}>Очистить корзину</button>
         </div>
         <div className="cart__items">
-          <div className="cart__item">
-            <div className="cart__item_img">
-              <img src="" alt="" />
-            </div>
-            <div className="cart__item_info">
-              <h3>Название</h3>
-              <p>Описание</p>
-            </div>
-            <div className="cart__item_count">
-              <button className="btn">
-                <img src={minusIcon} alt="decrease" />
-              </button>
-              <p>1</p>
-              <button className="btn">
-                <img src={plusIcon} alt="increase" />
-              </button>
-            </div>
-            <div className="cart__item_price">999</div>
-            <div className="cart__item_delete">
-              <button className="btn">
-                <img src={deleteIcon} alt="remove all" />
-              </button>
-            </div>
-          </div>
-          <div className="cart__item">
-            <div className="cart__item_img">
-              <img src="" alt="" />
-            </div>
-            <div className="cart__item_info">
-              <h3>Название</h3>
-              <p>Описание</p>
-            </div>
-            <div className="cart__item_count">
-              <button className="btn">
-                <img src={minusIcon} alt="decrease" />
-              </button>
-              <p>1</p>
-              <button className="btn">
-                <img src={plusIcon} alt="increase" />
-              </button>
-            </div>
-            <div className="cart__item_price">999</div>
-            <div className="cart__item_delete">
-              <button className="btn">
-                <img src={deleteIcon} alt="remove all" />
-              </button>
-            </div>
-          </div>
+          {
+            items.map(item => <CartItem key={item.id} {...item}/>)
+          }
         </div>
         <div className="cart__bottom">
           <div className="cart__bottom_total">
             <div>
-              Всего продуктов: <span>5</span>
+              Всего продуктов: <span>{totalItems}</span>
             </div>
             <div>
-              Cумма заказа: <span>999</span>
+              Cумма заказа: <span>{totalPrice} ₴</span>
             </div>
           </div>
           <div className="cart__bottom_btns">
