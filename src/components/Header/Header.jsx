@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchValue } from '../../store/slices/filterSlice';
 
 import logo from '../../assets/images/logo.png';
 import cartLogo from '../../assets/images/cart.png';
@@ -9,7 +10,8 @@ import accountLogo from '../../assets/images/accountLogo.png';
 import './header.scss';
 
 const Header = () => {
-  const {totalItems} = useSelector(state => state.cart);
+  const dispatch = useDispatch();
+  const { totalItems } = useSelector((state) => state.cart);
 
   return (
     <header className="header">
@@ -27,14 +29,14 @@ const Header = () => {
         </div>
       </Link>
       <div className="header__actions">
-        <Link to="/cart">
-          <div className="header__cart">
-            <button className="header__btnCart header__btn btn">
+        <div className="header__cart">
+          <Link to="/cart">
+            <button className="header__btnCart header__btn btn" onClick={() => dispatch(setSearchValue(''))}>
               <img src={cartLogo} alt="cart" width={24} />
               <span>{totalItems}</span>
             </button>
-          </div>
-        </Link>
+          </Link>
+        </div>
         <div className="header__account">
           <button className="header__btn btn">
             <img src={accountLogo} alt="account" width={24} />

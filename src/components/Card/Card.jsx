@@ -1,13 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setModalActive, setСlickedCard } from '../../store/slices/modalSlice.js';
 import { recountTotalValues, addItem } from '../../store/slices/cartSlice.js';
 
 import './card.scss';
 
-const Card = ({ item, currentData }) => {
-  const { id, category, imgUrl, name, price, weight, pieces } = item;
+const Card = ({ id, category, imgUrl, name, price, weight, pieces }) => {
   const dispatch = useDispatch();
+  const { currentData } = useSelector((state) => state.products);
 
   const openCardModal = (currentData, id) => {
     dispatch(setModalActive());

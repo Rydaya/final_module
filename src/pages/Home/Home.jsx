@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import useFilter from './hooks/useFilter.jsx';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../../store/slices/productsSlice.js';
 
 import Categories from './sections/Categories/Categories.jsx';
 import Sort from './sections/Sort/Sort.jsx';
@@ -15,32 +16,24 @@ import errLogo from '../../assets/images/errLogo.png';
 import './home.scss';
 
 const Home = () => {
-  const [currentData, setCurrentData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const totalFilter = useFilter();
 
+  const dispatch = useDispatch();
+  const { currentData, status } = useSelector((state) => state.products);
+
   const filterValues = useSelector((state) => state.filter);
-
-
   const makeTotalFilter = useCallback(
     () => totalFilter(currentData, filterValues),
-    [filterValues, currentData],
+    [filterValues, currentData, totalFilter],
   );
- 
+
   useEffect(() => {
-    setIsLoading(true);
-    fetch('https://633a0563e02b9b64c60bbf90.mockapi.io/products')
-      .then((res) => {
-        if (!res.ok) throw new Error('Что-то пошло не так...');
-        else return res.json();
-      })
-      .then((res) => setCurrentData(res))
-      .catch((err) => setError(err.message))
-      .finally(() => setIsLoading(false));
+    async function fetchData() {
+      dispatch(fetchProducts());
+    }
+    fetchData();
     window.scrollTo(0, 0);
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -51,11 +44,11 @@ const Home = () => {
           <Sort />
         </div>
         <div className="products">
-          {!!error && <FetchBanner src={errLogo} alt="error" title={error} />}
-          {isLoading && <FetchBanner src={loadLogo} alt="loading" title="Loading..." />}
-          {!isLoading &&
+          {status === 'error' && <FetchBanner src={errLogo} alt="error" title='Что-то пошло не так...' />}
+          {status === 'loading' && <FetchBanner src={loadLogo} alt="loading" title="Loading..." />}
+          {status === 'sucsess' &&
             makeTotalFilter(currentData, filterValues).map((item) => (
-              <Card item={item} currentData={currentData} key={item.id} />
+              <Card {...item} key={item.id} />
             ))}
         </div>
         <Modal />
