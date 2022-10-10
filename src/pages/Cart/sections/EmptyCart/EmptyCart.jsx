@@ -7,11 +7,11 @@ import './emptyCart.scss';
 const EmptyCart = () => {
   return (
     <div className="emptyCart">
-      <h1 className="emptyCart__title">Корзина пуста :(</h1>
-      <p className="emptyCart__text">Для того, чтобы заказать, перейди на главную страницу.</p>
+      <h2>Корзина пуста :(</h2>
+      <p className="emptyCart__text p_grey">Для того, чтобы заказать, перейди на главную страницу.</p>
       <img src={emptyCartLogo} alt="Empty cart logo" />
       <Link to="/">
-        <button className="btn emptyCart__btn">Вернуться</button>
+        <button className="btn btn_orange emptyCart__btn">Вернуться</button>
       </Link>
     </div>
   );

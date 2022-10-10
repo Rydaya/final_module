@@ -4,9 +4,16 @@ import { setSearchValue } from '../../../../store/slices/filterSlice.js';
 
 import debounce from 'lodash.debounce';
 
+import './search.scss';
+
 const Search = () => {
   const [localValue, setLocalValue] = useState('');
   const dispatch = useDispatch();
+
+  const onChangeInput = (e) => {
+    setLocalValue(e.target.value);
+    updateSearchValue(e.target.value);
+  }
 
   const updateSearchValue = useCallback(
     debounce((value) => {
@@ -15,14 +22,9 @@ const Search = () => {
     [],
   );
 
-  const onChangeInput = (e) => {
-    setLocalValue(e.target.value);
-    updateSearchValue(e.target.value);
-  }
-
   return (
     <input
-      className="container__search"
+      className="search"
       value={localValue}
       onChange={onChangeInput}
     />

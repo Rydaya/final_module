@@ -33,7 +33,7 @@ const Categories = () => {
             <li
               key={name}
               id={id}
-              className={categoryId === id ? 'categories__item categories__active' : 'categories__item'}
+              className={categoryId === id ? 'categories__item active' : 'categories__item'}
               onClick={() => dispatch(setCategoryId(id))}
             >
               <img src={logo} alt={name} width={30} />

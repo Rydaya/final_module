@@ -6,7 +6,7 @@ const FetchBanner = ({ src, alt, title }) => {
   return (
     <div className="fetchBanner">
       <img src={src} alt={alt} />
-      <p>{title}</p>
+      <h2>{title}</h2>
     </div>
   );
 };

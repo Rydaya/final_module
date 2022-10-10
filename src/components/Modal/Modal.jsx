@@ -20,12 +20,12 @@ const Modal = () => {
               <img src={imgUrl} alt={name} width={250} />
             </div>
             <div className="modal__info">
-              <div className="modal__title">{name}</div>
+              <h2 className="modal__title">{name}</h2>
               <div className="modal__about">
                 {weight} {category === 'drinks' ? 'мл' : 'грамм'}, {pieces} шт
               </div>
               <div className="price modal__price">{price} ₴</div>
-              <div className="modal__desc">Состав: {ingredients}</div>
+              <p className="p_grey modal__desc">Состав: {ingredients}</p>
             </div>
           </div>
         ))

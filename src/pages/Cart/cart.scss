@@ -9,18 +9,6 @@
     justify-content: space-between;
     margin-bottom: 30px;
   }
-  &__title {
-    font-size: 30px;
-    font-weight: 700;
-  }
-  &__clear {
-    color: #a4acad;
-    background: none;
-    border: 1px solid #a4acad;
-    font-size: 20px;
-    padding: 8px;
-    border-radius: 5px;
-  }
   &__items {
     margin-bottom: 50px;
   }
@@ -28,94 +16,22 @@
     &_total {
       display: flex;
       justify-content: space-between;
-      font-size: 22px;
       margin-bottom: 30px;
+      font-size: 20px;
       span {
         color: #f46d40;
-        font-weight: 500;
       }
     }
     &_btns {
       display: flex;
       justify-content: space-between;
     }
-    &_back {
-      color: #a4acad;
-      background: none;
-      border: 1px solid #a4acad;
-      border-radius: 5px;
-      font-size: 20px;
-      padding: 8px;
-    }
-    &_pay {
-      font-size: 20px;
-      padding: 8px;
-    }
   }
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 600px) {
     margin: 50px auto;
     padding: 0 20px;
-    &__title {
-      font-size: 22px;
-      font-weight: 700;
-    }
-    &__clear {
-      font-size: 16px;
-    }
     &__items {
       margin-bottom: 25px;
     }
-    &__item {
-      border-top: 1px solid #d3d7d7;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 30px;
-      width: 100%;
-      margin-bottom: 15px;
-      &_img {
-        align-items: center;
-        display: flex;
-        margin-right: 15px;
-        height: 80px;
-        img {
-          width: 80px;
-        }
-      }
-      &_info {
-        h3 {
-          font-size: 16px;
-        }
-        p {
-          font-size: 14px;
-        }
-      }
-      &_count {
-        button {
-          width: 20px;
-          height: 20px;
-        }
-      }
-      &_price {
-        font-size: 16px;
-      }
-      &_delete {
-        button {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-    &__bottom {
-        &_total {
-          font-size: 18px;
-        }
-        &_back {
-          font-size: 16px;
-        }
-        &_pay {
-          font-size: 16px;
-        }
-      }
   }
 }

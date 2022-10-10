@@ -2,12 +2,88 @@ body {
   height: 100%;
   margin: 0;
   font-family: system-ui;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f2f2f2;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 33px;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 5px 0;
+  white-space: nowrap;
+}
+
 #root {
   height: 100vh;
+}
+
+.buyblock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 20px;
+  margin-right: 5px;
+  white-space: nowrap;
+}
+
+.btn {
+  border-radius: 4px;
+  font-size: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.btn_orange {
+  color: #fff;
+  background-color: #f46d40;
+  font-weight: 500;
+}
+
+.btn_grey {
+  color: #a4acad;
+  background: none;
+  border: 1px solid #a4acad;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.p_grey {
+  color: #a4acad;
+}
+
+.active {
+  background: rgba(254, 95, 30, 0.05);
+  color: #f46d40;
+  font-weight: 500;
+  font-size: 17px;
 }
 

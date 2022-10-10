@@ -12,41 +12,43 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { totalPrice, totalItems, items } = useSelector((state) => state.cart);
 
-  const onClickClear = () =>{
+  const onClickClear = () => {
     dispatch(clearItems());
     dispatch(recountTotalValues());
-  }
+  };
 
   if (!totalPrice) {
-    return <EmptyCart/>
+    return <EmptyCart />;
   }
 
   return (
     <>
       <div className="cart">
         <div className="cart__top">
-          <div className="cart__title">Корзина</div>
-          <button className="cart__clear" onClick={onClickClear}>Очистить корзину</button>
+          <h2 className="cart__title">Корзина</h2>
+          <button className="btn btn_grey" onClick={onClickClear}>
+            Очистить корзину
+          </button>
         </div>
         <div className="cart__items">
-          {
-            items.map(item => <CartItem key={item.id} {...item}/>)
-          }
+          {items.map((item) => (
+            <CartItem key={item.id} {...item} />
+          ))}
         </div>
         <div className="cart__bottom">
           <div className="cart__bottom_total">
-            <div>
-              Всего продуктов: <span>{totalItems}</span>
-            </div>
-            <div>
-              Cумма заказа: <span>{totalPrice} ₴</span>
-            </div>
+            <p>
+              Всего продуктов: <span className='price'>{totalItems}</span>
+            </p>
+            <p>
+              Cумма заказа: <span className='price'>{totalPrice} ₴</span>
+            </p>
           </div>
           <div className="cart__bottom_btns">
             <Link to="/">
-              <button className="cart__bottom_back">Вернуться назад</button>
+              <button className="btn btn_grey">Вернуться назад</button>
             </Link>
-            <button className="btn cart__bottom_pay">Оформить заказ</button>
+            <button className="btn btn_orange">Оформить заказ</button>
           </div>
         </div>
       </div>

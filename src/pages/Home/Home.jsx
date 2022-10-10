@@ -38,13 +38,15 @@ const Home = () => {
   return (
     <>
       <Categories />
-      <div className="container">
-        <div className="container__header">
+      <div className="home">
+        <div className="home__header">
           <Search />
           <Sort />
         </div>
-        <div className="products">
-          {status === 'error' && <FetchBanner src={errLogo} alt="error" title='Что-то пошло не так...' />}
+        <div className={status==='sucsess' ? 'products' : ''}>
+          {status === 'error' && (
+            <FetchBanner src={errLogo} alt="error" title="Что-то пошло не так..." />
+          )}
           {status === 'loading' && <FetchBanner src={loadLogo} alt="loading" title="Loading..." />}
           {status === 'sucsess' &&
             makeTotalFilter(currentData, filterValues).map((item) => (

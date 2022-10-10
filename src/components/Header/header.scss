@@ -1,14 +1,9 @@
 .header {
-  background-color: #fff;
   border-bottom: 1px solid #d3d7d7;
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  a {
-    text-decoration: none;
-    color: #000;
-  }
   &__info {
     margin-right: 20px;
     min-width: 150px;
@@ -16,37 +11,35 @@
     align-items: center;
   }
   &__phone {
-    font-size: 18px;
-    font-weight: 600;
+    color: #000;
+    margin: 0;
     span {
       color: #f46d40;
     }
   }
-  &__schedule {
-    color: #a4acad;
-  }
   &__actions{
     display: flex;
-
   }
   &__btn {
-    padding: 0 0 3px 0;
     height: 35px;
     width: 60px;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  &__btnCart{
+    margin-right: 15px;
     span {
-      align-self: end;
+      position: relative;
+      top: 6px;
       font-size: 14px;
       color: #fff;
     }
   }
-  &__btnCart{
-    margin-right: 15px;
-  }
   @media screen and (max-width: 450px){
     padding: 10px 15px;
+    &__phone{
+      font-size: 18px;
+    }
+    &__btn{
+      width: 40px;
+    }
   }
 }

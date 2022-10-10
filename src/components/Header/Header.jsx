@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSearchValue } from '../../store/slices/filterSlice';
+import { setSearchValue } from '../../store/slices/filterSlice.js';
 
 import logo from '../../assets/images/logo.png';
 import cartLogo from '../../assets/images/cart.png';
@@ -9,9 +9,10 @@ import accountLogo from '../../assets/images/accountLogo.png';
 
 import './header.scss';
 
+
 const Header = () => {
   const dispatch = useDispatch();
-  const { totalItems } = useSelector((state) => state.cart);
+  const { totalItems } = useSelector(state => state.cart);
 
   return (
     <header className="header">
@@ -21,24 +22,24 @@ const Header = () => {
             <img width={80} src={logo} alt="logo" />
           </div>
           <div className="header__contacts">
-            <div className="header__phone">
+            <h3 className="header__phone">
               Наш телефон <span>966</span>
-            </div>
-            <div className="header__schedule">Работаем с 10 до 22</div>
+            </h3>
+            <p className="p_grey">Работаем с 10 до 22</p>
           </div>
         </div>
       </Link>
       <div className="header__actions">
         <div className="header__cart">
           <Link to="/cart">
-            <button className="header__btnCart header__btn btn" onClick={() => dispatch(setSearchValue(''))}>
+            <button className="header__btnCart header__btn btn btn_orange" onClick={() => dispatch(setSearchValue(''))}>
               <img src={cartLogo} alt="cart" width={24} />
               <span>{totalItems}</span>
             </button>
           </Link>
         </div>
         <div className="header__account">
-          <button className="header__btn btn">
+          <button className="header__btn btn btn_orange">
             <img src={accountLogo} alt="account" width={24} />
           </button>
         </div>

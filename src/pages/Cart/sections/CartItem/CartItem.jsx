@@ -37,22 +37,22 @@ const CartItem = ({ id, category, imgUrl, count, name, price, weight, pieces }) 
       </div>
       <div className="cartItem__info">
         <h3>{name}</h3>
-        <p>
+        <p className='p_grey'>
           {weight} {category === 'drinks' ? 'мл' : 'грамм'}, {pieces} шт
         </p>
       </div>
       <div className="cartItem__count">
-        <button className="btn" onClick={onClickMinus}>
+        <button className="btn btn_orange" onClick={onClickMinus}>
           <img src={minusIcon} alt="decrease" />
         </button>
         <p>{count}</p>
-        <button className="btn" onClick={onClickPlus}>
+        <button className="btn btn_orange" onClick={onClickPlus}>
           <img src={plusIcon} alt="increase" />
         </button>
       </div>
-      <div className="cartItem__price">{price * count} ₴</div>
+      <div className="price cartItem__price">{price * count} ₴</div>
       <div className="cartItem__delete">
-        <button className="btn" onClick={onClickRemove}>
+        <button className="btn btn_orange" onClick={onClickRemove}>
           <img src={deleteIcon} alt="remove all" />
         </button>
       </div>

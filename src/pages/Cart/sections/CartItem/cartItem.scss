@@ -1,56 +1,43 @@
 .cartItem {
   border-top: 1px solid #d3d7d7;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  width: 100%;
-  margin-bottom: 15px;
+  align-items: center;
   &__img {
-    align-items: center;
     display: flex;
-    margin-right: 15px;
+    align-items: center;
     height: 120px;
     img {
       width: 120px;
     }
   }
-  &__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 40%;
-    h3 {
-      margin: 0;
-      font-size: 20px;
-    }
-    p {
-      color: #a4acad;
-    }
+  &__info{
+    width: 35%;
   }
   &__count {
+    width: 15%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    p {
-      margin: 0 10px;
-      font-size: 18px;
-      font-weight: 700px;
-    }
-    button {
-      width: 25px;
-      height: 25px;
-    }
-  }
-  &__price {
-    font-size: 20px;
+    justify-content: space-around;
+    font-size: 18px;
     font-weight: 500;
-    margin: 0 10px;
   }
-  &__delete {
-    button {
-      width: 25px;
-      height: 25px;
+  &__price{
+    text-align: center;
+  }
+  button {
+    width: 25px;
+    height: 25px;
+  }
+  @media screen and (max-width: 600px) {
+    &__img {
+      margin-right: 5px;
+      height: 80px;
+      img {
+        width: 80px;
+      }
     }
+  }
+  @media screen and (max-width: 500px){
+    flex-wrap: wrap;
   }
 }
