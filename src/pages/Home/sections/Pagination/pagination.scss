@@ -1,0 +1,16 @@
+.pagination {
+  margin: 30px auto;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    width: 35px;
+    height: 35px;
+  }
+  &__page:hover {
+    color: #fff;
+    background-color: #f46d40;
+    border: none;
+  }
+}

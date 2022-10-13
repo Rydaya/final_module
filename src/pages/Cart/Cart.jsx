@@ -38,17 +38,19 @@ const Cart = () => {
         <div className="cart__bottom">
           <div className="cart__bottom_total">
             <p>
-              Всего продуктов: <span className='price'>{totalItems}</span>
+              Всего продуктов: <span className="price">{totalItems}</span>
             </p>
             <p>
-              Cумма заказа: <span className='price'>{totalPrice} ₴</span>
+              Cумма заказа: <span className="price">{totalPrice} ₴</span>
             </p>
           </div>
           <div className="cart__bottom_btns">
             <Link to="/">
               <button className="btn btn_grey">Вернуться назад</button>
             </Link>
-            <button className="btn btn_orange">Оформить заказ</button>
+            <Link to="/signIn">
+              <button className="btn btn_orange">Оформить заказ</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchValue } from '../../store/slices/filterSlice.js';
 
@@ -9,10 +9,10 @@ import accountLogo from '../../assets/images/accountLogo.png';
 
 import './header.scss';
 
-
 const Header = () => {
   const dispatch = useDispatch();
-  const { totalItems } = useSelector(state => state.cart);
+  const { totalItems } = useSelector((state) => state.cart);
+  const location = useLocation();
 
   return (
     <header className="header">
@@ -31,17 +31,26 @@ const Header = () => {
       </Link>
       <div className="header__actions">
         <div className="header__cart">
-          <Link to="/cart">
-            <button className="header__btnCart header__btn btn btn_orange" onClick={() => dispatch(setSearchValue(''))}>
-              <img src={cartLogo} alt="cart" width={24} />
-              <span>{totalItems}</span>
-            </button>
-          </Link>
+          {location.pathname !== '/cart' && (
+            <Link to="/cart">
+              <button
+                className="header__btnCart header__btn btn btn_orange"
+                onClick={() => dispatch(setSearchValue(''))}
+              >
+                <img src={cartLogo} alt="cart" width={24} />
+                <span>{totalItems}</span>
+              </button>
+            </Link>
+          )}
         </div>
         <div className="header__account">
-          <button className="header__btn btn btn_orange">
-            <img src={accountLogo} alt="account" width={24} />
-          </button>
+          {location.pathname !== '/signIn' && (
+            <Link to="/signIn">
+              <button className="header__btn btn btn_orange">
+                <img src={accountLogo} alt="account" width={24} />
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </header>

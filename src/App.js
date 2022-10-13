@@ -3,6 +3,9 @@ import {Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import NotFound from './pages/NotFound/NotFound.jsx';
+import SignIn from './pages/SignIn/SignIn.jsx';
+import SignUp from './pages/SignUp/SignUp.jsx';
 
 import Home from './pages/Home/Home.jsx';
 import Cart from './pages/Cart/Cart.jsx';
@@ -18,6 +21,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/signIn' element={<SignIn/>}/>
+          <Route path='/signUp' element={<SignUp/>}/>
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
       </div>
       <Footer />

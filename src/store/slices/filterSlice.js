@@ -20,7 +20,6 @@ const filterSlice = createSlice({
       state.sort = action.payload;
     },
     setSearchValue(state, action) {
-      console.log(state.searchValue); 
       state.searchValue = action.payload;
     },
   },

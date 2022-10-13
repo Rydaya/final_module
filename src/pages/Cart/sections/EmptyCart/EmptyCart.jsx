@@ -11,7 +11,7 @@ const EmptyCart = () => {
       <p className="emptyCart__text p_grey">Для того, чтобы заказать, перейди на главную страницу.</p>
       <img src={emptyCartLogo} alt="Empty cart logo" />
       <Link to="/">
-        <button className="btn btn_orange emptyCart__btn">Вернуться</button>
+        <button className="btn btn_orange emptyCart__btn">Посмотреть меню</button>
       </Link>
     </div>
   );

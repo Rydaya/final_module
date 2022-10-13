@@ -27,6 +27,7 @@ const Search = () => {
       className="search"
       value={localValue}
       onChange={onChangeInput}
+      placeholder="Введите название блюда"
     />
   );
 };

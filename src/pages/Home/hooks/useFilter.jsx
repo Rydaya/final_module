@@ -1,12 +1,14 @@
-
 const useFilter = () => {
   const totalFilter = (currentData, filterValues) => {
     const { categoryId, sort, searchValue } = filterValues;
+
     return currentData
       .filter(({ category }) =>
         filterValues.categoryId === 'all' ? true : category === categoryId,
       )
-      .filter(({ name }) => (name.toLowerCase().includes(searchValue.toLowerCase().trim()) ? true : false))
+      .filter(({ name }) =>
+        name.toLowerCase().includes(searchValue.toLowerCase().trim()) ? true : false,
+      )
       .sort((firstItem, secondItem) => {
         switch (sort.sortProperty) {
           case 'name':
@@ -20,7 +22,7 @@ const useFilter = () => {
         }
       });
   };
-
+  
   return totalFilter;
 };
 
