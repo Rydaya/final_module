@@ -1,7 +1,7 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import useFilter from './hooks/useFilter.jsx';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../../store/slices/productsSlice.js';
+import { fetchProducts, setFilteredData } from '../../store/slices/productsSlice.js';
 
 import Categories from './sections/Categories/Categories.jsx';
 import Sort from './sections/Sort/Sort.jsx';
@@ -18,17 +18,17 @@ import './home.scss';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { currentData, status } = useSelector((state) => state.products);
+  const { currentData, status, filteredData } = useSelector((state) => state.products);
   const { firstContentIndex, lastContentIndex } = useSelector(
     (state) => state.pagination.paginationValues,
   );
 
-  const totalFilter = useFilter();
   const filterValues = useSelector((state) => state.filter);
-  const makeTotalFilter = useCallback(
-    () => totalFilter(currentData, filterValues),
-    [filterValues, currentData, totalFilter],
-  );
+  const makeTotalFilter = useFilter(currentData, filterValues);
+
+  useEffect(() => {
+    dispatch(setFilteredData(makeTotalFilter()));
+  }, [currentData, filterValues])
 
   useEffect(() => {
     async function fetchData() {
@@ -52,7 +52,7 @@ const Home = () => {
           )}
           {status === 'loading' && <FetchBanner src={loadLogo} alt="loading" title="Loading..." />}
           {status === 'sucsess' &&
-            makeTotalFilter(currentData, filterValues)
+            filteredData
               .slice(firstContentIndex, lastContentIndex)
               .map((item) => <Card {...item} key={item.id} />)}
         </div>

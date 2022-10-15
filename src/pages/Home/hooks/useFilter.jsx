@@ -1,4 +1,7 @@
-const useFilter = () => {
+import { useState, useCallback } from "react";
+
+const useFilter = (currentData, filterValues) => {
+
   const totalFilter = (currentData, filterValues) => {
     const { categoryId, sort, searchValue } = filterValues;
 
@@ -22,8 +25,16 @@ const useFilter = () => {
         }
       });
   };
-  
-  return totalFilter;
+
+  const makeTotalFilter = useCallback(
+    () => totalFilter(currentData, filterValues),
+    [currentData, filterValues, totalFilter],
+  );
+
+  return makeTotalFilter;
 };
 
 export default useFilter;
+
+
+
