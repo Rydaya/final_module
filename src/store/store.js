@@ -4,6 +4,7 @@ import modal from './slices/modalSlice.js';
 import cart from './slices/cartSlice.js';
 import products from './slices/productsSlice.js';
 import pagination from './slices/paginationSlice.js';
+import user from './slices/userSlice.js';
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     cart,
     products,
     pagination,
+    user,
   },
 });

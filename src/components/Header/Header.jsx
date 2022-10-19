@@ -44,7 +44,7 @@ const Header = () => {
           )}
         </div>
         <div className="header__account">
-          {location.pathname !== '/signIn' && (
+          {location.pathname !== '/signIn' && location.pathname !== '/signUp' && (
             <Link to="/signIn">
               <button className="header__btn btn btn_orange">
                 <img src={accountLogo} alt="account" width={24} />

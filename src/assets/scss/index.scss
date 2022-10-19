@@ -121,11 +121,18 @@ input {
 .enterPoint {
   margin: 65px auto;
   width: 50%;
-  &__btns {
-    margin-top: 30px;
+  &__footer {
+    margin-top: 15px;
     display: flex;
-  }
-  &__submit {
-    margin-right: 15px;
+    justify-content: end;
+    p {
+      margin-right: 5px;
+    }
+    a {
+      color: #f46d40;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
 }

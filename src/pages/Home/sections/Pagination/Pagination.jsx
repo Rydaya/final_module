@@ -9,8 +9,6 @@ import './pagination.scss';
 const Pagination = () => {
   const dispatch = useDispatch();
   const {filteredData} = useSelector(state => state.products);
-
-  console.log(filteredData.length);
   
   const { firstContentIndex, lastContentIndex, nextPage, prevPage, page, setPage, totalPages } =
     usePagination({

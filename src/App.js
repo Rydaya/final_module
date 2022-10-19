@@ -10,6 +10,8 @@ import SignUp from './pages/SignUp/SignUp.jsx';
 import Home from './pages/Home/Home.jsx';
 import Cart from './pages/Cart/Cart.jsx';
 
+import './firebase.js';
+
 import './assets/scss/app.scss';
 
 function App() {
