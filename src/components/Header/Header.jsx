@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchValue } from '../../store/slices/filterSlice.js';
+import { recountTotalValues } from '../../store/slices/cartSlice.js';
 
 import logo from '../../assets/images/logo.png';
 import cartLogo from '../../assets/images/cart.png';
@@ -11,8 +12,18 @@ import './header.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { totalItems } = useSelector((state) => state.cart);
+  const { totalItems, items } = useSelector((state) => state.cart);
   const location = useLocation();
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+    dispatch(recountTotalValues());
+  }, [items, dispatch]);
 
   return (
     <header className="header">

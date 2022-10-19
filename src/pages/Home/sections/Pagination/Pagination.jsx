@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import usePagination from '../../hooks/usePagination.jsx';
+import usePagination from '../../../../hooks/usePagination.jsx';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setPaginationValues } from '../../../../store/slices/paginationSlice.js';
@@ -18,7 +18,7 @@ const Pagination = () => {
 
   useEffect(() => {
     dispatch(setPaginationValues({ firstContentIndex, lastContentIndex }));
-  }, [firstContentIndex, lastContentIndex]);
+  }, [firstContentIndex, lastContentIndex, dispatch]);
 
   return (
     <>

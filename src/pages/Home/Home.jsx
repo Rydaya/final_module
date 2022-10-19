@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useFilter from './hooks/useFilter.jsx';
+import useFilter from '../../hooks/useFilter.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, setFilteredData } from '../../store/slices/productsSlice.js';
 
@@ -28,7 +28,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(setFilteredData(makeTotalFilter()));
-  }, [currentData, filterValues])
+  }, [currentData, filterValues, dispatch, makeTotalFilter])
 
   useEffect(() => {
     async function fetchData() {
