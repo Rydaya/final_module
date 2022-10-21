@@ -8,7 +8,7 @@ import Sort from './sections/Sort/Sort.jsx';
 import FetchBanner from './sections/FetchBanner/FetchBanner.jsx';
 import Search from './sections/Search/Search.jsx';
 import Card from '../../components/Card/Card.jsx';
-import Pagination from './sections/Pagination/Pagination.jsx';
+import Pagination from '../../components/Pagination/Pagination.jsx';
 import Modal from '../../components/Modal/Modal.jsx';
 
 import loadLogo from '../../assets/images/loadLogo.png';

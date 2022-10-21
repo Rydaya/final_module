@@ -2,9 +2,14 @@ import { useState } from 'react';
 
 const usePagination = ({ contentPerPage, count }) => {
   const [page, setPage] = useState(1);
+
   const pageCount = Math.ceil(count / contentPerPage);
   const lastContentIndex = page * contentPerPage;
   const firstContentIndex = lastContentIndex - contentPerPage;
+
+  console.log(firstContentIndex);
+  console.log(lastContentIndex);
+
   const changePage = (direction) => {
     setPage((state) => {
       if (direction) {
@@ -20,6 +25,7 @@ const usePagination = ({ contentPerPage, count }) => {
       }
     });
   };
+  
   const setPageSAFE = (num) => {
     if (num > pageCount) {
       setPage(pageCount);
@@ -29,6 +35,7 @@ const usePagination = ({ contentPerPage, count }) => {
       setPage(num);
     }
   };
+
   return {
     totalPages: pageCount,
     nextPage: () => changePage(true),

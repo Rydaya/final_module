@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../../store/slices/userSlice.js';
+import { useAuth } from '../../hooks/useAuth.jsx';
 
 import Form from '../../components/Form/Form.jsx';
 
 const SignIn = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { token } = useAuth();
 
   const handleLogin = (e, email, password) => {
     e.preventDefault();
@@ -16,22 +15,15 @@ const SignIn = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          }),
-        );
-        navigate('/');
+        localStorage.setItem('token', user.accessToken);
+        window.location.reload();
       })
       .catch(() => {
         alert('Такого пользователя не существует!');
-        navigate('/signUp');
       });
   };
 
-  return (
+  return !token ? (
     <div className="enterPoint">
       <Form title="Войти" handleClick={handleLogin} />
       <div className="enterPoint__footer">
@@ -39,6 +31,8 @@ const SignIn = () => {
         <Link to="/signUp">Зарегистрируйся</Link>
       </div>
     </div>
+  ) : (
+    <Navigate to="/userPage" replace={true} />
   );
 };
 

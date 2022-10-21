@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = ({ title, handleClick }) => {
+const Form = ({ title, handleClick, children }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,6 +28,7 @@ const Form = ({ title, handleClick }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </fieldset>
+        {children}
         <div>
           <button
             className="btn btn_orange"

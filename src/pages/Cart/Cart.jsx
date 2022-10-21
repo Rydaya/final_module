@@ -2,15 +2,16 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { recountTotalValues, clearItems } from '../../store/slices/cartSlice.js';
 
-import CartItem from './sections/CartItem/CartItem.jsx';
-import EmptyCart from './sections/EmptyCart/EmptyCart.jsx';
+import Orders from '../../components/Orders/Orders.jsx';
+import Total from '../../components/Total/Total.jsx';
+import Empty from '../../components/Empty/Empty.jsx';
 
 import './cart.scss';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const { totalPrice, totalItems, items } = useSelector((state) => state.cart);
+  const { totalPrice, items } = useSelector((state) => state.cart);
 
   const onClickClear = () => {
     dispatch(clearItems());
@@ -18,7 +19,7 @@ const Cart = () => {
   };
 
   if (!totalPrice) {
-    return <EmptyCart />;
+    return <Empty title='Корзина пуста :(' type='emptyCart'/>;
   }
 
   return (
@@ -30,25 +31,18 @@ const Cart = () => {
             Очистить корзину
           </button>
         </div>
-        <div className="cart__items">
+        <div className="cart__orders">
           {items.map((item) => (
-            <CartItem key={item.id} {...item} />
+            <Orders key={item.id} {...item} type='cart'/>
           ))}
         </div>
         <div className="cart__bottom">
-          <div className="cart__bottom_total">
-            <p>
-              Всего продуктов: <span className="price">{totalItems}</span>
-            </p>
-            <p>
-              Cумма заказа: <span className="price">{totalPrice} ₴</span>
-            </p>
-          </div>
+          <Total/>
           <div className="cart__bottom_btns">
             <Link to="/">
               <button className="btn btn_grey">Вернуться назад</button>
             </Link>
-            <Link to="/signIn">
+            <Link to='/signIn'>
               <button className="btn btn_orange">Оформить заказ</button>
             </Link>
           </div>

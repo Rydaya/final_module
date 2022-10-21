@@ -1,5 +1,5 @@
 .cart {
-  margin: 90px auto;
+  margin: 30px auto;
   max-width: 820px;
   width: 100%;
   padding: 0 30px;
@@ -8,9 +8,6 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-  }
-  &__items {
-    margin-bottom: 50px;
   }
   &__bottom {
     &_total {
@@ -30,8 +27,5 @@
   @media screen and (max-width: 600px) {
     margin: 50px auto;
     padding: 0 20px;
-    &__items {
-      margin-bottom: 25px;
-    }
   }
 }
