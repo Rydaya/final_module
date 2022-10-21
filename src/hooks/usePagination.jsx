@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const usePagination = ({ contentPerPage, count }) => {
   const [page, setPage] = useState(1);
@@ -7,8 +7,9 @@ const usePagination = ({ contentPerPage, count }) => {
   const lastContentIndex = page * contentPerPage;
   const firstContentIndex = lastContentIndex - contentPerPage;
 
-  console.log(firstContentIndex);
-  console.log(lastContentIndex);
+  useEffect(() => {
+    setPage(count > 7 ? page : 1);
+  }, [count, page]);
 
   const changePage = (direction) => {
     setPage((state) => {
