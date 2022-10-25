@@ -11,7 +11,7 @@ import UserPage from './pages/UserPage/UserPage.jsx';
 import Home from './pages/Home/Home.jsx';
 import Cart from './pages/Cart/Cart.jsx';
 
-import './firebase.js';
+import './services/firebaseService.js';
 
 import './assets/scss/app.scss';
 

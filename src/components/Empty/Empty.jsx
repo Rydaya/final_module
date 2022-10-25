@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import emptyLogo from '../../assets/images/emptyLogo.png';
+import emptyLogo from 'assets/images/emptyLogo.png';
 import './empty.scss';
 
 const Empty = ({title, type}) => {

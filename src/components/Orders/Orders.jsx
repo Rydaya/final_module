@@ -6,11 +6,11 @@ import {
   addItem,
   minusItem,
   removeItem,
-} from '../../store/slices/cartSlice.js';
+} from 'store/slices/cartSlice.js';
 
-import minusIcon from '../../assets/images/minusIcon.png';
-import plusIcon from '../../assets/images/plusIcon.png';
-import deleteIcon from '../../assets/images/deleteIcon.png';
+import minusIcon from 'assets/images/minusIcon.png';
+import plusIcon from 'assets/images/plusIcon.png';
+import deleteIcon from 'assets/images/deleteIcon.png';
 
 import './orders.scss';
 

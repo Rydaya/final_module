@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCartFromLS } from '../../utils/getCartFromLS.js';
+import { getCartFromLS } from 'utils/getCartFromLS.js';
 
 const initialState = {
   totalPrice: 0,

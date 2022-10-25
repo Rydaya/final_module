@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from 'react-redux';
-import {setUser, removeUser} from "../store/slices/userSlice";
+import {setUser, removeUser} from "store/slices/userSlice";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {doc, getDoc, getFirestore} from "firebase/firestore";
-import {app} from "../firebase.js";
+import {app} from "services/firebaseService.js";
 
 export function useAuth() {
     const {email, name, photo, phone, token, id} = useSelector(state => state.user);

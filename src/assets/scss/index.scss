@@ -129,9 +129,13 @@ input {
     }
     a {
       color: #f46d40;
-      &:hover{
+      &:hover {
         text-decoration: underline;
       }
     }
   }
+}
+
+.errors {
+  color: red;
 }

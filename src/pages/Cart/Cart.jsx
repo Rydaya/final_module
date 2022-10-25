@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { recountTotalValues, clearItems } from '../../store/slices/cartSlice.js';
+import { recountTotalValues, clearItems } from 'store/slices/cartSlice.js';
 
-import Orders from '../../components/Orders/Orders.jsx';
-import Total from '../../components/Total/Total.jsx';
-import Empty from '../../components/Empty/Empty.jsx';
+import Orders from 'components/Orders/Orders.jsx';
+import Total from 'components/Total/Total.jsx';
+import Empty from 'components/Empty/Empty.jsx';
 
 import './cart.scss';
 import { Link } from 'react-router-dom';

@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import {useForm} from "react-hook-form";
 
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useAuth } from '../../hooks/useAuth.jsx';
+import { useAuth } from 'hooks/useAuth.jsx';
 
-import Form from '../../components/Form/Form.jsx';
+import Form from 'components/Form/Form.jsx';
 
 const SignIn = () => {
   const { token } = useAuth();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const handleLogin = (e, email, password) => {
-    e.preventDefault();
-
+  const handleLogin = (formObject) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, formObject.email, formObject.password)
       .then(({ user }) => {
         localStorage.setItem('token', user.accessToken);
         window.location.reload();
@@ -25,7 +25,7 @@ const SignIn = () => {
 
   return !token ? (
     <div className="enterPoint">
-      <Form title="Войти" handleClick={handleLogin} />
+      <Form title="Войти" handleClick={handleSubmit(handleLogin)} register={register} errors={errors} />
       <div className="enterPoint__footer">
         <p className="p_grey">Ещё нет аккаунта?</p>
         <Link to="/signUp">Зарегистрируйся</Link>

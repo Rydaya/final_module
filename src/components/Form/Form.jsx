@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = ({ title, handleClick, children }) => {
+const Form = ({ title, handleClick, children, register, errors }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -9,6 +9,13 @@ const Form = ({ title, handleClick, children }) => {
         <fieldset>
           <legend htmlFor="email">E-mail</legend>
           <input
+            {...register("email", {
+              required: "Поле обязательно для заполнения.",
+              pattern: {
+                  value: /^[^\@]+\@[^\.]+\.[a-z]{2,4}$/i,
+                  message: "Введите валидный email."
+              }
+            })}
             type="email"
             id="email"
             name="email"
@@ -16,10 +23,18 @@ const Form = ({ title, handleClick, children }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {errors?.email && <span className='errors'>{errors?.email?.message || "Ошибка."}</span>}
         </fieldset>
         <fieldset>
           <legend htmlFor="password">Пароль</legend>
           <input
+            {...register("password", {
+              required: "Поле обязательно для заполнения.",
+              minLength: {
+                  value: 6,
+                  message: "Минимальное количество символов - 6"
+              }
+            })}
             type="password"
             id="password"
             name="password"
@@ -27,6 +42,7 @@ const Form = ({ title, handleClick, children }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errors?.password && <span className='errors'>{errors?.password?.message || "Ошибка."}</span>}
         </fieldset>
         {children}
         <div>

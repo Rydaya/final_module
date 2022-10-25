@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { STATUSES } from 'store/constants.js';
 
 export const fetchProducts = createAsyncThunk('products/fetchProductsStatus', async () => {
   const response = await fetch('https://633a0563e02b9b64c60bbf90.mockapi.io/products').then(res => res.json());
@@ -7,7 +8,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProductsStatus', as
 
 const initialState = {
   currentData: [],
-  status: 'loading',
+  status: STATUSES.LOADING,
   filteredData: [],
 };
 
@@ -24,14 +25,14 @@ const producstSlice = createSlice({
   },
   extraReducers: {
     [fetchProducts.pending]: (state) => {
-      state.status = 'loading';
+      state.status = STATUSES.LOADING;
     },
     [fetchProducts.fulfilled]: (state, action) => {
       state.currentData = action.payload;
-      state.status = 'sucsess';
+      state.status = STATUSES.SUCCESS;
     },
     [fetchProducts.rejected]: (state) => {
-      state.status = 'error';
+      state.status = STATUSES.ERROR;
 
     },
   },

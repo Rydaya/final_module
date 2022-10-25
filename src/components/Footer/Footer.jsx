@@ -1,6 +1,6 @@
 import React from 'react';
-import instagram from '../../assets/images/instagram.png';
-import facebook from '../../assets/images/facebook.png';
+import instagram from 'assets/images/instagram.png';
+import facebook from 'assets/images/facebook.png';
 import './footer.scss';
 
 const Footer = () => {

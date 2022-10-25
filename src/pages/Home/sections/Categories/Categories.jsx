@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setCategoryId } from '../../../../store/slices/filterSlice.js';
+import { setCategoryId } from 'store/slices/filterSlice.js';
 
-import alllogo from '../../../../assets/images/alllogo.png';
-import setlogo from '../../../../assets/images/setlogo.png';
-import rolllogo from '../../../../assets/images/rolllogo.png';
-import sashimilogo from '../../../../assets/images/sashimilogo.png';
-import saladlogo from '../../../../assets/images/saladlogo.png';
-import drinkslogo from '../../../../assets/images/drinkslogo.png';
+import alllogo from 'assets/images/alllogo.png';
+import setlogo from 'assets/images/setlogo.png';
+import rolllogo from 'assets/images/rolllogo.png';
+import sashimilogo from 'assets/images/sashimilogo.png';
+import saladlogo from 'assets/images/saladlogo.png';
+import drinkslogo from 'assets/images/drinkslogo.png';
 
 import './categories.scss';
 

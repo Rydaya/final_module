@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setModalActive, setСlickedCard } from '../../store/slices/modalSlice.js';
-import { recountTotalValues, addItem } from '../../store/slices/cartSlice.js';
+import { setModalActive, setСlickedCard } from 'store/slices/modalSlice.js';
+import { recountTotalValues, addItem } from 'store/slices/cartSlice.js';
 
 import './card.scss';
 

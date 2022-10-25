@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSearchValue } from '../../store/slices/filterSlice.js';
-import { recountTotalValues } from '../../store/slices/cartSlice.js';
+import { setSearchValue } from 'store/slices/filterSlice.js';
+import { recountTotalValues } from 'store/slices/cartSlice.js';
 
-import logo from '../../assets/images/logo.png';
-import cartLogo from '../../assets/images/cart.png';
-import accountLogo from '../../assets/images/accountLogo.png';
+import logo from 'assets/images/logo.png';
+import cartLogo from 'assets/images/cart.png';
+import accountLogo from 'assets/images/accountLogo.png';
 
 import './header.scss';
 

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import usePagination from '../../hooks/usePagination.jsx';
+import usePagination from 'hooks/usePagination.jsx';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setPaginationValues } from '../../store/slices/paginationSlice.js';
+import { setPaginationValues } from 'store/slices/paginationSlice.js';
 
 import './pagination.scss';
 

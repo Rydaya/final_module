@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setModalActive } from '../../store/slices/modalSlice.js';
+import { setModalActive } from 'store/slices/modalSlice.js';
 
 import './modal.scss';
 

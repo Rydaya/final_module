@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-import { removeUser } from '../../store/slices/userSlice.js';
+import { removeUser } from 'store/slices/userSlice.js';
 
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
-import { useAuth } from '../../hooks/useAuth.jsx';
-import { getCartFromLS } from '../../utils/getCartFromLS.js';
+import { useAuth } from 'hooks/useAuth.jsx';
+import { getCartFromLS } from 'utils/getCartFromLS.js';
 
-import Orders from '../../components/Orders/Orders.jsx';
-import Total from '../../components/Total/Total.jsx';
-import Empty from '../../components/Empty/Empty.jsx';
+import Orders from 'components/Orders/Orders.jsx';
+import Total from 'components/Total/Total.jsx';
+import Empty from 'components/Empty/Empty.jsx';
 
-import unknown from '../../assets/images/unknown.png';
+import unknown from 'assets/images/unknown.png';
 import './userPage.scss';
 
 const UserPage = () => {
@@ -21,25 +21,29 @@ const UserPage = () => {
   const [userPhoto, setUserPhoto] = useState(unknown);
   const { email, name, photo, phone, token } = useAuth();
   const auth = getAuth();
+  const fireBasePhotoUrl = 'https://firebasestorage.googleapis.com/v0/b/final-module-65c00.appspot.com/o/';
 
   useEffect(() => {
     if (photo) {
-      let url =
-        'https://firebasestorage.googleapis.com/v0/b/final-module-65c00.appspot.com/o/' +
-        photo +
-        '?alt=media';
+      let url = fireBasePhotoUrl + photo + '?alt=media';
       setUserPhoto(url);
     }
   }, [photo]);
 
   const onSelectImageHandler = (files) => {
+    const allowedExtensions = /(\.png|\.jpeg|\.jpg|\.web)$/i;
     const file = files[0];
-    const storage = getStorage();
-    const storageRef = ref(storage, email);
-    uploadBytes(storageRef, file).then((snapshot) => {
-      updateProfile(auth.currentUser, { photoURL: email });
-      window.location.reload();
-    });
+    console.log(file.name);
+    if (allowedExtensions.exec(file.name)) {
+      const storage = getStorage();
+      const storageRef = ref(storage, email);
+      uploadBytes(storageRef, file).then((snapshot) => {
+        updateProfile(auth.currentUser, { photoURL: email });
+        window.location.reload();
+      });
+    } else {
+      alert('Не валидный тип файла.');
+    }
   };
 
   const onSingOut = () => {
