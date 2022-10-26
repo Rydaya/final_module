@@ -42,7 +42,7 @@ const Header = () => {
       </Link>
       <div className="header__actions">
         <div className="header__cart">
-          {location.pathname !== '/cart' &&(
+          {location.pathname !== '/cart' && (
             <Link to="/cart">
               <button
                 className="header__btnCart header__btn btn btn_orange"
@@ -58,7 +58,7 @@ const Header = () => {
           {location.pathname !== '/signIn' &&
             location.pathname !== '/signUp' &&
             location.pathname !== '/userPage' && (
-              <Link to='/signIn'>
+              <Link to="/signIn">
                 <button className="header__btn btn btn_orange">
                   <img src={accountLogo} alt="account" width={24} />
                 </button>

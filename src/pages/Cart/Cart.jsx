@@ -19,7 +19,7 @@ const Cart = () => {
   };
 
   if (!totalPrice) {
-    return <Empty title='Корзина пуста :(' type='emptyCart'/>;
+    return <Empty title="Корзина пуста :(" type="emptyCart" />;
   }
 
   return (
@@ -33,16 +33,16 @@ const Cart = () => {
         </div>
         <div className="cart__orders">
           {items.map((item) => (
-            <Orders key={item.id} {...item} type='cart'/>
+            <Orders key={item.id} {...item} type="cart" />
           ))}
         </div>
         <div className="cart__bottom">
-          <Total/>
+          <Total />
           <div className="cart__bottom_btns">
             <Link to="/">
               <button className="btn btn_grey">Вернуться назад</button>
             </Link>
-            <Link to='/signIn'>
+            <Link to="/signIn">
               <button className="btn btn_orange">Оформить заказ</button>
             </Link>
           </div>

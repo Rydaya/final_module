@@ -18,19 +18,19 @@
       color: #f46d40;
     }
   }
-  @media screen and (max-width: 860px){
+  @media screen and (max-width: 860px) {
     width: 180px;
   }
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     width: 60px;
-    &__item{
+    &__item {
       padding-left: 15px;
-      img{
+      img {
         margin: 0;
       }
     }
-    p{
-      visibility: hidden; 
+    p {
+      visibility: hidden;
     }
   }
 }

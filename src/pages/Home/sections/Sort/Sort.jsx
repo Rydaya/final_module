@@ -5,15 +5,15 @@ import { setSort } from 'store/slices/filterSlice';
 import './sort.scss';
 
 const list = [
-  { name: 'умолчанию', sortProperty: 'all'},
-  { name: 'убыванию цены', sortProperty: 'priceDesc'},
-  { name: 'возрастанию цены', sortProperty: 'priceAsc'},
-  { name: 'алфавиту', sortProperty: 'name'},
+  { name: 'умолчанию', sortProperty: 'all' },
+  { name: 'убыванию цены', sortProperty: 'priceDesc' },
+  { name: 'возрастанию цены', sortProperty: 'priceAsc' },
+  { name: 'алфавиту', sortProperty: 'name' },
 ];
 
-const Sort = () => { 
+const Sort = () => {
   const [open, setOpen] = useState(false);
-  const sortRef = useRef()
+  const sortRef = useRef();
 
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
@@ -25,8 +25,8 @@ const Sort = () => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if(!e.path.includes(sortRef.current)) setOpen(false);
-    }
+      if (!e.path.includes(sortRef.current)) setOpen(false);
+    };
     document.body.addEventListener('click', handleClickOutside);
 
     return () => document.body.removeEventListener('click', handleClickOutside);

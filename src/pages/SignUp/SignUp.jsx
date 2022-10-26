@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import {useForm} from "react-hook-form";
+import { useForm } from 'react-hook-form';
 
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useAuth } from 'hooks/useAuth.jsx';
@@ -12,20 +12,28 @@ import Form from 'components/Form/Form.jsx';
 const SignUp = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const db = getFirestore(app);
-  const {token} = useAuth();
+  const { token } = useAuth();
 
   async function handleRegister(formObject) {
     try {
       const auth = getAuth();
-      const userCredential = await createUserWithEmailAndPassword(auth, formObject.email, formObject.password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formObject.email,
+        formObject.password,
+      );
       await updateProfile(userCredential.user, { displayName: name });
       await setDoc(doc(db, 'users', userCredential.user.email), {
-        phone: phone
+        phone: phone,
       });
-      localStorage.setItem("token", userCredential.user.accessToken);
+      localStorage.setItem('token', userCredential.user.accessToken);
       window.location.reload();
     } catch (err) {
       alert(err);
@@ -34,20 +42,25 @@ const SignUp = () => {
 
   return !token ? (
     <div className="enterPoint">
-      <Form title="Регистрация" handleClick={handleSubmit(handleRegister)} register={register} errors={errors}>
+      <Form
+        title="Регистрация"
+        handleClick={handleSubmit(handleRegister)}
+        register={register}
+        errors={errors}
+      >
         <fieldset>
           <legend htmlFor="name">Имя</legend>
           <input
-            {...register("name", {
-              required: "Поле обязательно для заполнения.",
+            {...register('name', {
+              required: 'Поле обязательно для заполнения.',
               minLength: {
                 value: 2,
-                message: "Минимальное количество символов - 2"
+                message: 'Минимальное количество символов - 2',
               },
               maxLength: {
                 value: 25,
-                message: "Максимальное количество символов - 25"
-              }
+                message: 'Максимальное количество символов - 25',
+              },
             })}
             type="text"
             id="name"
@@ -56,17 +69,17 @@ const SignUp = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          {errors?.name && <span className='errors'>{errors?.name?.message || "Ошибка."}</span>}
+          {errors?.name && <span className="errors">{errors?.name?.message || 'Ошибка.'}</span>}
         </fieldset>
         <fieldset>
           <legend htmlFor="phone">Номер телефона</legend>
           <input
-            {...register("phone", {
-              required: "Поле обязательно для заполнения.",
+            {...register('phone', {
+              required: 'Поле обязательно для заполнения.',
               pattern: {
                 value: /^[0-9]{12}$/i,
-                message: "Введите валидный номер телефона с кодом странны."
-              }
+                message: 'Введите валидный номер телефона с кодом странны.',
+              },
             })}
             type="tel"
             id="phone"
@@ -74,7 +87,7 @@ const SignUp = () => {
             placeholder="380998898989"
             onChange={(e) => setPhone(parseInt(e.target.value))}
           />
-          {errors?.phone && <span className='errors'>{errors?.phone?.message || "Ошибка."}</span>}
+          {errors?.phone && <span className="errors">{errors?.phone?.message || 'Ошибка.'}</span>}
         </fieldset>
       </Form>
       <div className="enterPoint__footer">
@@ -84,7 +97,7 @@ const SignUp = () => {
     </div>
   ) : (
     <Navigate to="/userPage" replace={true} />
-  )
+  );
 };
 
 export default SignUp;

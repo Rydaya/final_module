@@ -17,14 +17,14 @@
       color: #f46d40;
     }
   }
-  &__actions{
+  &__actions {
     display: flex;
   }
   &__btn {
     height: 35px;
     width: 60px;
   }
-  &__btnCart{
+  &__btnCart {
     margin-right: 15px;
     span {
       position: relative;
@@ -33,12 +33,12 @@
       color: #fff;
     }
   }
-  @media screen and (max-width: 450px){
+  @media screen and (max-width: 450px) {
     padding: 10px 15px;
-    &__phone{
+    &__phone {
       font-size: 18px;
     }
-    &__btn{
+    &__btn {
       width: 40px;
     }
   }

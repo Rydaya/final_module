@@ -11,7 +11,7 @@
       width: 120px;
     }
   }
-  &__info{
+  &__info {
     width: 35%;
   }
   &__count {
@@ -21,7 +21,7 @@
     font-size: 18px;
     font-weight: 500;
   }
-  &__price{
+  &__price {
     text-align: center;
   }
   button {
@@ -37,7 +37,7 @@
       }
     }
   }
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
     flex-wrap: wrap;
   }
 }

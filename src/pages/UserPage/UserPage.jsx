@@ -21,7 +21,8 @@ const UserPage = () => {
   const [userPhoto, setUserPhoto] = useState(unknown);
   const { email, name, photo, phone, token } = useAuth();
   const auth = getAuth();
-  const fireBasePhotoUrl = 'https://firebasestorage.googleapis.com/v0/b/final-module-65c00.appspot.com/o/';
+  const fireBasePhotoUrl =
+    'https://firebasestorage.googleapis.com/v0/b/final-module-65c00.appspot.com/o/';
 
   useEffect(() => {
     if (photo) {
@@ -33,7 +34,6 @@ const UserPage = () => {
   const onSelectImageHandler = (files) => {
     const allowedExtensions = /(\.png|\.jpeg|\.jpg|\.web)$/i;
     const file = files[0];
-    console.log(file.name);
     if (allowedExtensions.exec(file.name)) {
       const storage = getStorage();
       const storageRef = ref(storage, email);
@@ -101,7 +101,7 @@ const UserPage = () => {
           </div>
         </>
       ) : (
-        <Empty title='У вас еще нет заказов :('/>
+        <Empty title="У вас еще нет заказов :(" />
       )}
     </div>
   ) : (

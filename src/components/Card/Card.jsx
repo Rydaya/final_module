@@ -7,7 +7,7 @@ import './card.scss';
 
 const Card = ({ id, category, imgUrl, name, price, weight, pieces }) => {
   const dispatch = useDispatch();
-  const { currentData } = useSelector(state => state.products);
+  const { currentData } = useSelector((state) => state.products);
 
   const openCardModal = (currentData, id) => {
     dispatch(setModalActive());

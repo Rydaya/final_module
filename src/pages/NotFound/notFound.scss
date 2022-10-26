@@ -1,21 +1,21 @@
-.notFound{
-    margin: 30px auto;
-    text-align: center;
-    padding: 20px 0;
-    > * {
-        margin-bottom: 15px;
-    }
-    &__img{
-        padding-left: 60px;
-    }
-    &__title{
-        font-weight: 700;
-    }
-    &__subtitle{
-        max-width: 600px;
-        white-space: normal;
-    }
-    &__btn{
-        margin: 0 auto;
-    }
+.notFound {
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px 0;
+  > * {
+    margin-bottom: 15px;
+  }
+  &__img {
+    padding-left: 60px;
+  }
+  &__title {
+    font-weight: 700;
+  }
+  &__subtitle {
+    max-width: 600px;
+    white-space: normal;
+  }
+  &__btn {
+    margin: 0 auto;
+  }
 }

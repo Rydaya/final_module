@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import useFilter from 'hooks/useFilter.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, setFilteredData } from 'store/slices/productsSlice.js';
@@ -25,22 +25,26 @@ const Home = () => {
     (state) => state.pagination.paginationValues,
   );
 
-  const isSuccess = (status) => status === STATUSES.SUCCESS;
-  const isLoading = (status) => status === STATUSES.LOADING;
-  const isError = (status) => status === STATUSES.ERROR;
-
-
   const filterValues = useSelector((state) => state.filter);
   const makeTotalFilter = useFilter(currentData, filterValues);
 
   useEffect(() => {
     dispatch(setFilteredData(makeTotalFilter()));
-  }, [currentData, filterValues, dispatch, makeTotalFilter])
+  }, [currentData, filterValues, dispatch, makeTotalFilter]);
 
   useEffect(() => {
     dispatch(fetchProducts());
     window.scrollTo(0, 0);
   }, [dispatch]);
+
+  const selectedData = useMemo(
+    () => filteredData.slice(firstContentIndex, lastContentIndex),
+    [firstContentIndex, lastContentIndex, filteredData],
+  );
+
+  const isSuccess = (status) => status === STATUSES.SUCCESS;
+  const isLoading = (status) => status === STATUSES.LOADING;
+  const isError = (status) => status === STATUSES.ERROR;
 
   return (
     <>
@@ -55,10 +59,7 @@ const Home = () => {
             <FetchBanner src={errLogo} alt="error" title="Что-то пошло не так..." />
           )}
           {isLoading(status) && <FetchBanner src={loadLogo} alt="loading" title="Loading..." />}
-          {isSuccess(status) &&
-            filteredData
-              .slice(firstContentIndex, lastContentIndex)
-              .map((item) => <Card {...item} key={item.id} />)}
+          {isSuccess(status) && selectedData.map((item) => <Card {...item} key={item.id} />)}
         </div>
         <Pagination />
         <Modal />

@@ -1,12 +1,7 @@
 import React from 'react';
 
 import { useDispatch } from 'react-redux';
-import {
-  recountTotalValues,
-  addItem,
-  minusItem,
-  removeItem,
-} from 'store/slices/cartSlice.js';
+import { recountTotalValues, addItem, minusItem, removeItem } from 'store/slices/cartSlice.js';
 
 import minusIcon from 'assets/images/minusIcon.png';
 import plusIcon from 'assets/images/plusIcon.png';
@@ -52,7 +47,7 @@ const Orders = ({ id, category, imgUrl, count, name, price, weight, pieces, type
           </button>
         </div>
       ) : (
-        <h3 className='p_grey'>{count} шт.</h3>
+        <h3 className="p_grey">{count} шт.</h3>
       )}
       <div className="price orders__price">{price * count} ₴</div>
       {type === 'cart' ? (

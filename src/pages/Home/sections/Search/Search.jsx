@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchValue } from 'store/slices/filterSlice.js';
 
@@ -10,17 +10,18 @@ const Search = () => {
   const [localValue, setLocalValue] = useState('');
   const dispatch = useDispatch();
 
+  const updateSearchValue = useMemo(
+    () =>
+      debounce((value) => {
+        dispatch(setSearchValue(value));
+      }, 500),
+    [dispatch],
+  );
+
   const onChangeInput = (e) => {
     setLocalValue(e.target.value);
     updateSearchValue(e.target.value);
-  }
-
-  const updateSearchValue = useCallback(
-    debounce((value) => {
-      dispatch(setSearchValue(value))
-    }, 500),
-    [],
-  );
+  };
 
   return (
     <input
