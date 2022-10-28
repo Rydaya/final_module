@@ -7,19 +7,20 @@ import { useAuth } from 'hooks/useAuth.jsx';
 import { app } from 'services/firebaseService.js';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
 
+import { nameValidationRules, phoneValidationRules } from 'utils/validationRules';
+
 import Form from 'components/Form/Form.jsx';
 
 const SignUp = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const { token } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const db = getFirestore(app);
-  const { token } = useAuth();
 
   async function handleRegister(formObject) {
     try {
@@ -44,24 +45,14 @@ const SignUp = () => {
     <div className="enterPoint">
       <Form
         title="Регистрация"
-        handleClick={handleSubmit(handleRegister)}
+        handleClick={handleSubmit(handleRegister)} 
         register={register}
         errors={errors}
       >
         <fieldset>
           <legend htmlFor="name">Имя</legend>
           <input
-            {...register('name', {
-              required: 'Поле обязательно для заполнения.',
-              minLength: {
-                value: 2,
-                message: 'Минимальное количество символов - 2',
-              },
-              maxLength: {
-                value: 25,
-                message: 'Максимальное количество символов - 25',
-              },
-            })}
+            {...register('name', nameValidationRules)}
             type="text"
             id="name"
             name="name"
@@ -74,13 +65,7 @@ const SignUp = () => {
         <fieldset>
           <legend htmlFor="phone">Номер телефона</legend>
           <input
-            {...register('phone', {
-              required: 'Поле обязательно для заполнения.',
-              pattern: {
-                value: /^[0-9]{12}$/i,
-                message: 'Введите валидный номер телефона с кодом странны.',
-              },
-            })}
+            {...register('phone', phoneValidationRules)}
             type="tel"
             id="phone"
             name="phone"

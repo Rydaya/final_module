@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { emailValidationRules, passwordValidationRules } from 'utils/validationRules';
+
 const Form = ({ title, handleClick, children, register, errors }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,13 +11,7 @@ const Form = ({ title, handleClick, children, register, errors }) => {
       <fieldset>
         <legend htmlFor="email">E-mail</legend>
         <input
-          {...register('email', {
-            required: 'Поле обязательно для заполнения.',
-            pattern: {
-              value: /^[^@]+@[^.]+.[a-z]{2,4}$/i,
-              message: 'Введите валидный email.',
-            },
-          })}
+          {...register('email', emailValidationRules)}
           type="email"
           id="email"
           name="email"
@@ -28,13 +24,7 @@ const Form = ({ title, handleClick, children, register, errors }) => {
       <fieldset>
         <legend htmlFor="password">Пароль</legend>
         <input
-          {...register('password', {
-            required: 'Поле обязательно для заполнения.',
-            minLength: {
-              value: 6,
-              message: 'Минимальное количество символов - 6',
-            },
-          })}
+          {...register('password', passwordValidationRules)}
           type="password"
           id="password"
           name="password"

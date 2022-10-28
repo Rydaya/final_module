@@ -18,7 +18,7 @@ import './userPage.scss';
 
 const UserPage = () => {
   const dispatch = useDispatch();
-  const [userPhoto, setUserPhoto] = useState(unknown);
+  const [userPhoto, setUserPhoto] = useState(unknown); 
   const { email, name, photo, phone, token } = useAuth();
   const auth = getAuth();
   const fireBasePhotoUrl =
@@ -29,13 +29,13 @@ const UserPage = () => {
       let url = fireBasePhotoUrl + photo + '?alt=media';
       setUserPhoto(url);
     }
-  }, [photo]);
+  }, [photo]); 
 
   const onSelectImageHandler = (files) => {
-    const allowedExtensions = /(\.png|\.jpeg|\.jpg|\.web)$/i;
+    const allowedExtensions = /(\.png|\.jpeg|\.jpg|\.web)$/i; 
     const file = files[0];
     if (allowedExtensions.exec(file.name)) {
-      const storage = getStorage();
+      const storage = getStorage(); 
       const storageRef = ref(storage, email);
       uploadBytes(storageRef, file).then((snapshot) => {
         updateProfile(auth.currentUser, { photoURL: email });

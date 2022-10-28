@@ -7,12 +7,12 @@ import { app } from 'services/firebaseService.js';
 export function useAuth() {
   const { email, name, photo, phone, token, id } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const auth = getAuth();
-  const db = getFirestore(app);
+  const auth = getAuth(); 
+  const db = getFirestore(app); 
 
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, (user) => {  
     if (user && user.accessToken === localStorage.getItem('token')) {
-      let docRef = doc(db, 'users', user.email);
+      let docRef = doc(db, 'users', user.email); 
       getDoc(docRef).then((collection) => {
         dispatch(
           setUser({
@@ -38,3 +38,4 @@ export function useAuth() {
     id,
   };
 }
+

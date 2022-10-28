@@ -13,14 +13,14 @@ const SignIn = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm();  
 
   const handleLogin = (formObject) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, formObject.email, formObject.password)
       .then(({ user }) => {
         localStorage.setItem('token', user.accessToken);
-        window.location.reload();
+        window.location.reload(); 
       })
       .catch(() => {
         alert('Такого пользователя не существует!');
